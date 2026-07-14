@@ -37,10 +37,12 @@ stop when: specs/roadmap.md shows every phase ✅
 
 ```sh
 git clone git@github.com:dacquaviva/MySDD.git
-cd MySDD && ./install-claude-code.sh   # Claude Code, global (~/.claude/skills)
-# or per-project, shared with teammates:
-cp -r skills <your-project>/.claude/skills
+cd MySDD && ./install-claude-code.sh
 ```
+
+The script symlinks each skill into `~/.claude/skills`, where Claude Code
+looks — after that, the slash commands exist in every project on the machine,
+and a `git pull` here updates them everywhere.
 
 Other agents: `skills/*/SKILL.md` is the open Agent Skills format — plain
 markdown, paste it anywhere or wire it as your tool's custom commands;
