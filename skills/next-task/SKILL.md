@@ -13,6 +13,6 @@ Then update statuses:
 - mark the group ✅ done in `plan.md`;
 - tick any `validation.md` boxes now genuinely satisfied — never tick a box that wasn't actually checked.
 
-If this was the last group: run the full validation checklist, set the validation Status line to passed, mark the phase ✅ in `specs/roadmap.md`, and say explicitly that the phase closed.
+If this was the last group: run the full validation checklist, set the validation Status line to passed, mark the phase ✅ in `specs/roadmap.md`, and say explicitly that the phase closed. Then debrief in a bullet or two: anything in this phase's specs that turned out ambiguous, missing, or wrong while implementing — spec feedback for the user to fold back in, not fixes.
 
 Always end by saying what's next.
