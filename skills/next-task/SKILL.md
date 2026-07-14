@@ -9,7 +9,7 @@ Find the active feature spec under `specs/` (the dated directory whose `plan.md`
 
 Use that directory's `requirements.md` and `validation.md` for guidance, and the constitution (`specs/mission.md`, `specs/tech-stack.md`) for conventions.
 
-The group is done when the repo is green: run the project's validation gate (build + tests). Verify behavior for real where practical (run the app, hit the routes), not just via unit tests. Commit on main with the message format the plan prescribes.
+The group is done when the repo is green: run the project's validation gate (build + tests). Verify behavior for real where practical (run the app, hit the routes), not just via unit tests. If the gate fails, find the root cause before changing anything — no retry-until-green. Commit on main with the message format the plan prescribes.
 
 Then update statuses:
 - mark the group ✅ done in `plan.md`;
