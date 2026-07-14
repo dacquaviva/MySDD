@@ -44,6 +44,32 @@ The script symlinks each skill into `~/.claude/skills`, where Claude Code
 looks — after that, the slash commands exist in every project on the machine,
 and a `git pull` here updates them everywhere.
 
+## Example session
+
+```
+day 1 — new project
+you:   We are writing RecipeBox, a place to store family recipes.
+       Look in the README.md for input from stakeholders.
+you:   /constitution
+agent: asks 3 grouped questions (tone? stack? build order?)
+       → writes specs/mission.md, tech-stack.md, roadmap.md (phases 0–4)
+
+you:   /spec-phase
+agent: asks 3 grouped questions (scope? plan shape? validation gate?)
+       → writes specs/2026-07-14-boot/{plan,requirements,validation}.md
+you:   /next-task     → 0.1 toolchain        green, commit
+you:   /next-task     → 0.2 server + page    green, commit
+you:   /next-task     → 0.3 validation pass  → Phase 0 ✅ on the roadmap
+
+day 2 — a decision changes
+you:   /amend we store recipes in SQLite
+agent: constitution updated — "no ripples, nothing built uses storage yet"
+
+you:   /spec-phase … /next-task ×N … repeat until every phase is ✅
+```
+
+Any fresh session can continue from any point — the specs carry the state.
+
 Other agents: `skills/*/SKILL.md` is the open Agent Skills format — plain
 markdown, paste it anywhere or wire it as your tool's custom commands;
 `prompts/` holds the raw copy-paste versions.
