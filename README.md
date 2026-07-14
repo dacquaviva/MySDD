@@ -1,13 +1,13 @@
 # MySDD — spec-driven development for AI coding agents
 
-Five reusable prompts that run a whole project. All state lives in your
+Seven reusable prompts that run a whole project. All state lives in your
 repo's `specs/` — the prompts carry no information, they just say *"read the
 specs, do the next bit, update the paper."* The specs are the memory: any
 session, any agent, same buttons.
 
 ```
-0 ORIENT ─► 1 CONSTITUTION ─► ┌► 3 SPEC PHASE ─► 4 NEXT TASK ×N ─┐
-            (or 1 ADOPT)      └────────── next phase ◄───────────┘
+0 WHAT-DO-I-DO ─► 1 CONSTITUTION ─► ┌► 3 SPEC PHASE ─► 4 NEXT TASK ×N ─┐
+                  (or 1 ADOPT)      └────────── next phase ◄───────────┘
         2 AMEND / 5 SYNC ── when a decision changes
 
 stop when: specs/roadmap.md shows every phase ✅
@@ -15,7 +15,7 @@ stop when: specs/roadmap.md shows every phase ✅
 
 | Order | Skill | Raw prompt | When |
 | --- | --- | --- | --- |
-| 0 | — (just a first message) | [orient](prompts/00-orient.md) | once |
+| 0 | [/what-do-i-do](skills/what-do-i-do/SKILL.md) | [what-do-i-do](prompts/00-what-do-i-do.md) | every fresh session — read-only, says what to run |
 | 1 | [/constitution](skills/constitution/SKILL.md) | [constitution](prompts/01-constitution.md) | once per project — new codebase |
 | 1 | [/adopt](skills/adopt/SKILL.md) | [adopt](prompts/06-adopt.md) | once per project — existing codebase, instead of /constitution |
 | 2 | [/spec-phase](skills/spec-phase/SKILL.md) | [spec-phase](prompts/03-spec-phase.md) | once per phase |
@@ -66,7 +66,9 @@ you:   /next-task     → 2.1 GT loader + box matching   green, commit
 you:   /next-task     → 2.2 mAP / PR metrics           green, commit
 you:   /next-task     → 2.3 report + validation pass   → Phase 2 ✅
 
-day N — a decision changes
+day N — fresh session, a decision changed
+you:   /what-do-i-do
+agent: phases 0–2 ✅ · phase 3 not specced · gate green → run /spec-phase
 you:   /amend retraining uses auto-generated labels, not hand-labeled data
 agent: constitution updated — ripples: Phase 4 spec assumes hand labels
 you:   /sync the labeling change
