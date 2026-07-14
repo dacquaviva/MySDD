@@ -1,4 +1,4 @@
-# MySSD — spec-driven development for AI coding agents
+# MySDD — spec-driven development for AI coding agents
 
 Five reusable prompts that run a whole project. All state lives in your
 repo's `specs/` — the prompts carry no information, they just say *"read the
@@ -36,8 +36,8 @@ stop when: specs/roadmap.md shows every phase ✅
 ## Install
 
 ```sh
-git clone git@github.com:dacquaviva/MySSD.git
-cd MySSD && ./install.sh        # Claude Code, global (~/.claude/skills)
+git clone git@github.com:dacquaviva/MySDD.git
+cd MySDD && ./install.sh        # Claude Code, global (~/.claude/skills)
 # or per-project, shared with teammates:
 cp -r skills <your-project>/.claude/skills
 ```
