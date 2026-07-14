@@ -48,22 +48,27 @@ and a `git pull` here updates them everywhere.
 
 ```
 day 1 — new project
-you:   We are writing RecipeBox, a place to store family recipes.
-       Look in the README.md for input from stakeholders.
+you:   We are writing DetEval, a repo to evaluate an object-detection model:
+       run inference, benchmark against ground truth, retrain on
+       auto-generated data, all runnable on VMs. Look in the README.md for
+       input from stakeholders.
 you:   /constitution
-agent: asks 3 grouped questions (tone? stack? build order?)
-       → writes specs/mission.md, tech-stack.md, roadmap.md (phases 0–4)
+agent: asks 3 grouped questions (metrics? stack? build order?)
+       → specs/mission.md · tech-stack.md (Python, PyTorch, Docker) ·
+         roadmap.md: 0 boot · 1 inference · 2 eval vs GT · 3 run on VMs ·
+         4 auto-generated data · 5 retraining · 6 benchmark report
 
 you:   /spec-phase
 agent: asks 3 grouped questions (scope? plan shape? validation gate?)
-       → writes specs/2026-07-14-boot/{plan,requirements,validation}.md
-you:   /next-task     → 0.1 toolchain        green, commit
-you:   /next-task     → 0.2 server + page    green, commit
-you:   /next-task     → 0.3 validation pass  → Phase 0 ✅ on the roadmap
+       → specs/2026-07-14-eval-vs-gt/{plan,requirements,validation}.md
+you:   /next-task     → 2.1 GT loader + box matching   green, commit
+you:   /next-task     → 2.2 mAP / PR metrics           green, commit
+you:   /next-task     → 2.3 report + validation pass   → Phase 2 ✅
 
-day 2 — a decision changes
-you:   /amend we store recipes in SQLite
-agent: constitution updated — "no ripples, nothing built uses storage yet"
+day N — a decision changes
+you:   /amend retraining uses auto-generated labels, not hand-labeled data
+agent: constitution updated — ripples: Phase 4 spec assumes hand labels
+you:   /sync the labeling change
 
 you:   /spec-phase … /next-task ×N … repeat until every phase is ✅
 ```
