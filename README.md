@@ -51,8 +51,8 @@ and a `git pull` here updates them everywhere.
 day 1 — new project
 you:   We are writing DetEval, a repo to evaluate an object-detection model:
        run inference, benchmark against ground truth, retrain on
-       auto-generated data, all runnable on VMs. Look in the README.md for
-       input from stakeholders.
+       auto-generated data, all runnable on VMs. The brief with stakeholder
+       input is in specs/brief.md.
 you:   /constitution
 agent: asks 3 grouped questions (metrics? stack? build order?)
        → specs/mission.md · tech-stack.md (Python, PyTorch, Docker) ·

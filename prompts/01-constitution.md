@@ -1,5 +1,6 @@
 <!-- CONSTITUTION — once per project, right after ORIENT. -->
 
+Read specs/brief.md for the project context first.
 Let's create a "constitution" in a specs directory:
 - mission.md
 - tech-stack.md (include a code-economy rule: prefer stdlib and existing code
