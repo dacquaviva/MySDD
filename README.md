@@ -7,7 +7,7 @@ session, any agent, same buttons.
 
 ```
 0 ORIENT ─► 1 CONSTITUTION ─► ┌► 3 SPEC PHASE ─► 4 NEXT TASK ×N ─┐
-                              └────────── next phase ◄───────────┘
+            (or 1 ADOPT)      └────────── next phase ◄───────────┘
         2 AMEND / 5 SYNC ── when a decision changes
 
 stop when: specs/roadmap.md shows every phase ✅
@@ -16,7 +16,8 @@ stop when: specs/roadmap.md shows every phase ✅
 | Order | Skill | Raw prompt | When |
 | --- | --- | --- | --- |
 | 0 | — (just a first message) | [orient](prompts/00-orient.md) | once |
-| 1 | [/constitution](skills/constitution/SKILL.md) | [constitution](prompts/01-constitution.md) | once per project |
+| 1 | [/constitution](skills/constitution/SKILL.md) | [constitution](prompts/01-constitution.md) | once per project — new codebase |
+| 1 | [/adopt](skills/adopt/SKILL.md) | [adopt](prompts/06-adopt.md) | once per project — existing codebase, instead of /constitution |
 | 2 | [/spec-phase](skills/spec-phase/SKILL.md) | [spec-phase](prompts/03-spec-phase.md) | once per phase |
 | 3 | [/next-task](skills/next-task/SKILL.md) | [next-task](prompts/04-next-task.md) | per task group, until the phase closes |
 | — | [/amend](skills/amend/SKILL.md) | [amend](prompts/02-amend.md) | a decision changes |
