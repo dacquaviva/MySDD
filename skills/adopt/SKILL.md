@@ -10,7 +10,7 @@ First read the evidence: README and docs, dependency manifests, entry points, te
 Then create the constitution in a specs directory:
 
 - `specs/mission.md` — what the product observably does and for whom; keep inferred intent clearly separate from fact.
-- `specs/tech-stack.md` — decisions already embodied in the code, each with a one-line rationale; flag inherited-but-questionable choices explicitly instead of papering over them. Include by default a code-economy rule going forward — prefer stdlib and existing code over new dependencies; minimal code, no speculative abstractions — unless the user overrides it in the interview.
+- `specs/tech-stack.md` — decisions already embodied in the code, each with a one-line rationale; flag inherited-but-questionable choices explicitly instead of papering over them. Include by default a code-economy rule going forward — prefer stdlib and existing code over new dependencies; minimal code, no speculative abstractions — unless the user overrides it in the interview. Name the single command that means green (create one if the repo lacks it); it is the validation gate every task group must pass.
 - `specs/roadmap.md` — what already exists as ✅ phases (a short, honest history — never fiction), then future work in very small phases built from the TODOs/backlog, each with a concrete "done when".
 
 Important: you MUST use the AskUserQuestion tool — one question per file, grouped in a single call, focused on the gaps the code cannot answer (intent, audience, deferred decisions, priority order) — BEFORE writing anything to disk. Reflect the answers in the files. Commit the result.
