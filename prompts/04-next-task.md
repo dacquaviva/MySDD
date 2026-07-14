@@ -1,5 +1,6 @@
 <!-- NEXT TASK — the workhorse. Once per task group, until the phase closes. -->
 
+If there are uncommitted changes, stop and ask me first.
 Take the next task group from the active feature's plan.md under specs/ and
 implement it — only that one.
 Use requirements.md and validation.md for guidance.

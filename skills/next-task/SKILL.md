@@ -3,6 +3,8 @@ name: next-task
 description: Implement the next open task group from the active phase's plan.md, keep the repo green, update statuses. The workhorse — run once per task group until the phase closes.
 ---
 
+If there are uncommitted changes, stop and ask first.
+
 Find the active feature spec under `specs/` (the dated directory whose `plan.md` still has open task groups). Take the NEXT open task group and implement it — only that one.
 
 Use that directory's `requirements.md` and `validation.md` for guidance, and the constitution (`specs/mission.md`, `specs/tech-stack.md`) for conventions.

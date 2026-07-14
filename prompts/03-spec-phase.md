@@ -1,5 +1,6 @@
 <!-- SPEC A PHASE — once per phase, when the previous phase closed. -->
 
+If there are uncommitted changes, stop and ask me first.
 Find the next phase on specs/roadmap.md, ask me about the feature spec.
 We work directly on main, no branches.
 Create:
