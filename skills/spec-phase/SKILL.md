@@ -3,8 +3,6 @@ name: spec-phase
 description: Spec the next roadmap phase — create specs/YYYY-MM-DD-<feature>/ with plan.md, requirements.md and validation.md after asking grouped questions. Run once per phase, when the previous phase closed.
 ---
 
-If the working tree is dirty, stop and ask before doing anything.
-
 Find the next phase without ✅ on `specs/roadmap.md`. We work directly on main, no branches.
 
 If the previous phase is still unfinished (open task groups or an unclosed validation), say so and stop instead of speccing ahead.

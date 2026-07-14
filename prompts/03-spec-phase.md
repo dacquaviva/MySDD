@@ -1,6 +1,5 @@
 <!-- SPEC A PHASE — once per phase, when the previous phase closed. -->
 
-If the working tree is dirty, stop and ask first.
 Find the next phase on specs/roadmap.md, ask me about the feature spec.
 We work directly on main, no branches.
 Create:
