@@ -8,7 +8,7 @@ session, any agent, same buttons.
 ```
 0 WHAT-DO-I-DO ─► 1 CONSTITUTION ─► ┌► 3 SPEC PHASE ─► 4 NEXT TASK ×N ─┐
                   (or 1 ADOPT)      └────────── next phase ◄───────────┘
-        2 AMEND / 5 SYNC ── when a decision changes
+        2 ADJUST-LATER / 5 ADJUST-NOW ── when something changes, anytime
 
 stop when: specs/roadmap.md shows every phase ✅
 ```
@@ -20,8 +20,8 @@ stop when: specs/roadmap.md shows every phase ✅
 | 1 | [/adopt](skills/adopt/SKILL.md) | [adopt](prompts/06-adopt.md) | once per project — existing codebase, instead of /constitution |
 | 2 | [/spec-phase](skills/spec-phase/SKILL.md) | [spec-phase](prompts/03-spec-phase.md) | once per phase |
 | 3 | [/next-task](skills/next-task/SKILL.md) | [next-task](prompts/04-next-task.md) | per task group, until the phase closes |
-| — | [/amend](skills/amend/SKILL.md) | [amend](prompts/02-amend.md) | a decision changes |
-| — | [/sync](skills/sync/SKILL.md) | [sync](prompts/05-sync.md) | an amend reported ripples |
+| — | [/adjust-later](skills/adjust-later/SKILL.md) | [adjust-later](prompts/02-adjust-later.md) | a future decision changes — plans propagate, code waits |
+| — | [/adjust-now](skills/adjust-now/SKILL.md) | [adjust-now](prompts/05-adjust-now.md) | "change this now" — built immediately, docs in lockstep |
 
 ## Vocabulary
 
@@ -31,8 +31,13 @@ stop when: specs/roadmap.md shows every phase ✅
   `plan.md`, `validation.md`); ✅ on the roadmap when validation is all green.
 - **Task group** — a slice of a phase. One sitting, one green commit. The
   roadmap counts phases; `git log` counts task groups.
-- **Amend / sync** — change a rule / fix what the new rule broke. Huge blast
-  radius? Don't sync in one giant turn — add a migration phase instead.
+- **Adjust-later / adjust-now** — the two change flows, split by time.
+  *Later*: a future requirement or re-decision — constitution, roadmap and
+  open phase specs get propagated; code catches up when the groups are
+  built (huge blast radius → becomes a migration phase, not a giant turn).
+  *Now*: an immediate change to existing work — implemented right away
+  (gate green, user confirms, commit) with constitution and specs updated
+  in the same motion. Both trigger from plain words; the slash is a backup.
 
 ## Install
 
@@ -69,9 +74,11 @@ you:   /next-task     → 2.3 report + validation pass   → Phase 2 ✅
 day N — fresh session, a decision changed
 you:   /what-do-i-do
 agent: phases 0–2 ✅ · phase 3 not specced · gate green → run /spec-phase
-you:   /amend retraining uses auto-generated labels, not hand-labeled data
-agent: constitution updated — ripples: Phase 4 spec assumes hand labels
-you:   /sync the labeling change
+you:   /adjust-later retraining uses auto-generated labels, not hand labels
+agent: constitution updated · Phase 4 spec rewritten (assumed hand labels) —
+       nothing to build now, the retraining group picks it up
+you:   rename the eval report to benchmark.md and add a --csv flag
+agent: (adjust-now) done — gate green, README + phase spec updated · confirm?
 
 you:   /spec-phase … /next-task ×N … repeat until every phase is ✅
 ```

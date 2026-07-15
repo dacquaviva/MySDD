@@ -11,6 +11,8 @@ Use that directory's `requirements.md` and `validation.md` for guidance, and the
 
 The group is done when the repo is green: run the project's validation gate (build + tests). Verify behavior for real where practical (run the app, hit the routes), not just via unit tests. If the gate fails, find the root cause before changing anything — no retry-until-green.
 
+If the user changes scope mid-group (a new flag, a rename, different behavior): fold it into this group — implement it, update this phase's plan.md / requirements.md / validation.md to match in the same breath and commit that spec change, then re-run the gate. The spec must never lag what was actually built. Expect a "run it for real" feedback round from the user; treat what it produces as part of the group, not as new work.
+
 Do NOT commit yet. Report what was implemented and exactly how the user can check it (commands to run, URLs to open, what they should see), then wait. Only when the user confirms:
 
 - mark the group ✅ done in `plan.md`;

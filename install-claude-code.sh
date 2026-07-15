@@ -1,6 +1,7 @@
 #!/usr/bin/env sh
 # Symlink each skill into ~/.claude/skills so every project on this machine
-# gets: /what-do-i-do /constitution /adopt /amend /spec-phase /next-task /sync
+# gets: /what-do-i-do /constitution /adopt /spec-phase /next-task
+#       /adjust-later /adjust-now
 set -e
 
 SRC="$(cd "$(dirname "$0")/skills" && pwd)"

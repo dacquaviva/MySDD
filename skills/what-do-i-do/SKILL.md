@@ -14,4 +14,4 @@ Otherwise read `specs/roadmap.md`, the active phase's `plan.md` and `validation.
 - Gate: run the project's green command and report pass/fail — the one allowed execution.
 - Anything odd: dirty working tree, validation boxes ticked but gate red, roadmap and plan out of sync.
 
-End with exactly one recommendation: the single command to run next (/next-task, /spec-phase, /sync, ...).
+End with exactly one recommendation: the single command to run next (/next-task, /spec-phase, /adjust-later, ...).
