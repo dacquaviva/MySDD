@@ -1,6 +1,6 @@
 # MySDD — spec-driven development for AI coding agents
 
-Eight reusable prompts that run a whole project. All state lives in your
+Nine reusable prompts that run a whole project. All state lives in your
 repo's `specs/` — the prompts carry no information, they just say *"read the
 specs, do the next bit, update the paper."* The specs are the memory: any
 session, any agent, same buttons.
@@ -10,6 +10,7 @@ session, any agent, same buttons.
                   (or 1 ADOPT)      └────────── next phase ◄───────────┘
         2 ADJUST-LATER / 5 ADJUST-NOW ── when something changes, anytime
         6 SPIKE ── try something on the side, zero commitment
+        7 REOPEN ── a done research phase → active again, to improve it
 
 stop when: specs/roadmap.md shows every phase ✅
 ```
@@ -24,6 +25,7 @@ stop when: specs/roadmap.md shows every phase ✅
 | — | [/adjust-later](skills/adjust-later/SKILL.md) | [adjust-later](prompts/02-adjust-later.md) | a future decision changes — plans propagate, code waits |
 | — | [/adjust-now](skills/adjust-now/SKILL.md) | [adjust-now](prompts/05-adjust-now.md) | "change this now" — built immediately, docs in lockstep |
 | — | [/spike](skills/spike/SKILL.md) | [spike](prompts/07-spike.md) | try/prototype on the side — full context, nothing tracked changes |
+| — | [/reopen](skills/reopen/SKILL.md) | [reopen](prompts/08-reopen.md) | reopen a done research phase to improve it — appends a round, keeps history |
 
 ## Vocabulary
 
@@ -45,6 +47,13 @@ stop when: specs/roadmap.md shows every phase ✅
   change nothing tracked. Ends with findings + a promote-or-discard call —
   worth it graduates via adjust-now (code) or adjust-later (plans); the
   scratch code stays disposable. It's the "try before you commit" step.
+- **Reopen** — for research, a phase's deliverable (a model, algorithm,
+  metric) is never truly done; you come back and improve it. Reopen flips a
+  ✅ phase back to active and appends a dated *round* to its existing spec
+  folder (the folder keeps its birth date; rounds carry the improvement
+  dates), so the whole evolution stays under one roof instead of scattering
+  "improve-X-v2/v3" phases. History is appended, never erased. Feature work
+  still prefers a new phase; research reopens.
 
 ## Install
 
@@ -90,6 +99,10 @@ agent: (adjust-now) done — gate green, README + phase spec updated · confirm?
 you:   spike: would a smarter box-matching metric beat IoU on our data?
 agent: (spike) prototyped in experiments/, measured on real data — +6% match,
        nothing tracked touched · promote via /adjust-now, or bin it?
+
+you:   /reopen phase 2 — the new matching metric beats IoU, fold it in
+agent: Phase 2 ✅ → active · plan.md gets "Round 2 — matching metric
+       (reopened 2026-07-16)" · earlier rounds untouched → now /next-task
 
 you:   /spec-phase … /next-task ×N … repeat until every phase is ✅
 ```
