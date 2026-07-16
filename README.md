@@ -1,6 +1,6 @@
 # MySDD — spec-driven development for AI coding agents
 
-Seven reusable prompts that run a whole project. All state lives in your
+Eight reusable prompts that run a whole project. All state lives in your
 repo's `specs/` — the prompts carry no information, they just say *"read the
 specs, do the next bit, update the paper."* The specs are the memory: any
 session, any agent, same buttons.
@@ -9,6 +9,7 @@ session, any agent, same buttons.
 0 WHAT-DO-I-DO ─► 1 CONSTITUTION ─► ┌► 3 SPEC PHASE ─► 4 NEXT TASK ×N ─┐
                   (or 1 ADOPT)      └────────── next phase ◄───────────┘
         2 ADJUST-LATER / 5 ADJUST-NOW ── when something changes, anytime
+        6 SPIKE ── try something on the side, zero commitment
 
 stop when: specs/roadmap.md shows every phase ✅
 ```
@@ -22,6 +23,7 @@ stop when: specs/roadmap.md shows every phase ✅
 | 3 | [/next-task](skills/next-task/SKILL.md) | [next-task](prompts/04-next-task.md) | per task group, until the phase closes |
 | — | [/adjust-later](skills/adjust-later/SKILL.md) | [adjust-later](prompts/02-adjust-later.md) | a future decision changes — plans propagate, code waits |
 | — | [/adjust-now](skills/adjust-now/SKILL.md) | [adjust-now](prompts/05-adjust-now.md) | "change this now" — built immediately, docs in lockstep |
+| — | [/spike](skills/spike/SKILL.md) | [spike](prompts/07-spike.md) | try/prototype on the side — full context, nothing tracked changes |
 
 ## Vocabulary
 
@@ -38,6 +40,11 @@ stop when: specs/roadmap.md shows every phase ✅
   *Now*: an immediate change to existing work — implemented right away
   (gate green, user confirms, commit) with constitution and specs updated
   in the same motion. Both trigger from plain words; the slash is a backup.
+- **Spike** — a throwaway exploration with full context and zero commitment:
+  read everything, build only in a gitignored scratch area (`experiments/`),
+  change nothing tracked. Ends with findings + a promote-or-discard call —
+  worth it graduates via adjust-now (code) or adjust-later (plans); the
+  scratch code stays disposable. It's the "try before you commit" step.
 
 ## Install
 
@@ -79,6 +86,10 @@ agent: constitution updated · Phase 4 spec rewritten (assumed hand labels) —
        nothing to build now, the retraining group picks it up
 you:   rename the eval report to benchmark.md and add a --csv flag
 agent: (adjust-now) done — gate green, README + phase spec updated · confirm?
+
+you:   spike: would a smarter box-matching metric beat IoU on our data?
+agent: (spike) prototyped in experiments/, measured on real data — +6% match,
+       nothing tracked touched · promote via /adjust-now, or bin it?
 
 you:   /spec-phase … /next-task ×N … repeat until every phase is ✅
 ```
